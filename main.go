@@ -30,6 +30,7 @@ type WelcomeMessage struct {
 	Info              string   `json:"info"`
 	Docs              string   `json:"docs"`
 	AvailableVersions []string `json:"availableVersions"`
+	SampleEndpoints   []string `json:"sampleEndpoints"`
 	Credits           []string `json:"credits"`
 }
 
@@ -41,6 +42,7 @@ func main() {
 			Info:              "This API is built with Golang's Fiber framework, and deployed on Heroku",
 			Docs:              "This API has three endpoints: /, /translation/book/chapter, /translation/book/chapter/verse. I hope the names of these endpoints itself make sense on it's own.",
 			AvailableVersions: []string{"kjv", "esv", "nasb", "net", "niv", "nkjv", "nrsvce", "rsv", "web", "ylt", "cjb", "drb"},
+			SampleEndpoints:   []string{"/esv/gen/1", "/kjv/GEN/1", "/nasb/john/1/1"},
 			Credits:           []string{"JSON of Bible Translations: Github user Bohuslav who runs Bolls.life Bible App.", "API: go/fiber", "Hosting Provider: Heroku"},
 		}
 
