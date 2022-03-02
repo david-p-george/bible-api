@@ -25,11 +25,26 @@ type Verse struct {
 	Comment     string `json:"comment"`
 }
 
+type WelcomeMessage struct {
+	Text              string   `json:"text"`
+	Info              string   `json:"info"`
+	Docs              string   `json:"docs"`
+	AvailableVersions []string `json:"availableVersions"`
+	Credits           []string `json:"credits"`
+}
+
 func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hi, and welcome to the Bible API!")
+		welcomeMsg := WelcomeMessage{Text: "Hi, and welcome to the Bible API!",
+			Info:              "This API is built with Golang's Fiber framework, and deployed on Heroku",
+			Docs:              "This API has three endpoints: /, /translation/book/chapter, /translation/book/chapter/verse. I hope the names of these endpoints itself make sense on it's own.",
+			AvailableVersions: []string{"kjv", "esv", "nasb", "net", "niv", "nkjv", "nrsvce", "rsv", "web", "ylt", "cjb", "drb"},
+			Credits:           []string{"JSON of Bible Translations: Github user Bohuslav who runs Bolls.life Bible App.", "API: go/fiber", "Hosting Provider: Heroku"},
+		}
+
+		return c.JSON(welcomeMsg)
 	})
 
 	app.Get("/:translation/:book/:chapter", func(c *fiber.Ctx) error {
