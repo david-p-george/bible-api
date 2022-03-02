@@ -111,7 +111,7 @@ func main() {
 	// 	return c.JSON(verseArr)
 	// })
 
-	app.Listen(":3002")
+	app.Listen(os.Getenv("PORT"))
 }
 
 func returnChapterArrayOfVerses(verses []Verse, book int, chapter int) []Verse {
