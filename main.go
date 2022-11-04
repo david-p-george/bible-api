@@ -49,7 +49,7 @@ func main() {
 			Info:              "This API is built with Golang's Fiber framework, and deployed on Heroku",
 			Docs:              "This API has three endpoints: /, /translation/book/chapter, /translation/book/chapter/verse. I hope the names of these endpoints themselves make sense on their own.",
 			AvailableVersions: []string{"kjv", "esv", "nasb", "net", "niv", "nkjv", "nrsvce", "rsv", "web", "ylt", "cjb", "drb"},
-			SampleEndpoints:   []string{"/esv/gen/1", "/kjv/GEN/1", "/nasb/john/1/1"},
+			SampleEndpoints:   []string{"/esv/gen/1", "/kjv/psa/1", "/nasb/john/1/1"},
 			Credits:           []string{"JSON of Bible Translations: Github user Bohuslav who runs Bolls.life Bible App.", "API: go/fiber", "Hosting Provider: Heroku"},
 		}
 
